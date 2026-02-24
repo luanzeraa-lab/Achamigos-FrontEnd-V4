@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  transition: font-size 0.2s ease;
+}
+
+
+/* Modo claro  */
+:root {
+  --bg: #fdfdfd;   
+  --text: #2a2a2a; 
+  --span: #2a2a2a;
+}
+
+/* Modo escuro */
+body.dark {
+  --bg: #1f2937;   
+  --text: #f5f5f5; 
+  --span: #d1d5db;
+}
+
+// body.dark nav {
+//     background-color: #1f2937 !important; 
+// }
+// body.dark footer {
+//     background-color: #1f2937 !important; 
+// }
+// body.dark #darks {
+//     background-color: #1f2937 !important; 
+// }
+// body.dark p {
+//   --span: #2a2a2a !important; ;
+//   --text: #2a2a2a !important; ; 
+// }
+// body.dark info {
+//     --text: #2a2a2a !important; ; 
+  
+// }
+
+
+
+
+a {
+    color: inherit; 
+    text-decoration: none;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+span {
+  color: var(--span);
+}
+
+
+@media (width <= 56.25rem) {
+  .image-pet {
+    display: none;
+  }
+
+  
+}

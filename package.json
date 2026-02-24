@@ -1,0 +1,52 @@
+{
+  "type": "module",
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^3.27.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@fontsource/maven-pro": "^5.2.7",
+    "algoliasearch": "^5.44.0",
+    "axios": "^1.13.2",
+    "bootstrap": "^5.3.3",
+    "express": "^5.1.0",
+    "formik": "^2.4.6",
+    "framer-motion": "^12.23.12",
+    "lucide-react": "^0.552.0",
+    "next": "^15.5.3",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "^18.2.0",
+    "react-smart-print": "^1.2.1",
+    "react-to-print": "^3.2.0",
+    "sass": "^1.93.2",
+    "scss": "^0.2.4",
+    "vlibras-nextjs": "^1.1.2",
+    "yup": "^1.7.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5"
+  }
+}

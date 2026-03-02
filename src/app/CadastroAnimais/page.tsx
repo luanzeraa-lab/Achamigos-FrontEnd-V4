@@ -5,12 +5,6 @@ import { Container, Image, Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { link } from 'fs';
-
-interface IVacina {
-  id: string;
-  nome: string;
-}
 
 const CadastroAnimais = () => {
   const router = useRouter();
@@ -25,43 +19,17 @@ const CadastroAnimais = () => {
     }
   }, []);
 
-
-
   const [nomeAnimal, setNomeAnimal] = useState('');
   const [idadeAnimal, setIdadeAnimal] = useState<number | ''>('');
   const [racaAnimal, setRacaAnimal] = useState('');
   const [sexoAnimal, setSexoAnimal] = useState('');
   const [porteAnimal, setPorteAnimal] = useState('');
   const [pesoAnimal, setPesoAnimal] = useState<number | ''>('');
-  const [vacinas, setVacinas] = useState<IVacina[]>([]);
-  const [vacinaAnimal, setVacinaAnimal] = useState<string[]>([]);
   const [obsAnimal, setObsAnimal] = useState('');
   const [linkAnimal, setLinkAnimal] = useState('');
   const [tipo, setTipo] = useState('');
   const [castrado, setCastrado] = useState(false);
   const [imgAnimal, setImgAnimal] = useState<File | undefined>(undefined);
-
-  useEffect(() => {
-    const fetchVacinas = async () => {
-      try {
-        const res = await axios.get('https://vacinaspringboot.onrender.com/api/vacinas');
-        console.log('Vacinas recebidas:', res.data);
-        setVacinas(res.data);
-      } catch (err) {
-        console.error('Erro ao buscar vacinas', err);
-      }
-    };
-    fetchVacinas();
-  }, []);
-
-  const vacinaChecada = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, checked } = event.target;
-    if (checked) {
-      setVacinaAnimal([...vacinaAnimal, value]);
-    } else {
-      setVacinaAnimal(vacinaAnimal.filter((v) => v !== value));
-    }
-  };
 
   const createAnimal = async (
   nome: string,
@@ -70,7 +38,6 @@ const CadastroAnimais = () => {
   sexo: string,
   porte: string,
   peso: number | '',
-  vacinasIds: string[],
   observacoes: string,
   linkAnimal: string,
   castracao: boolean,
@@ -91,12 +58,6 @@ const CadastroAnimais = () => {
   formData.append('userId', userId || '');
 
   if (imagem) formData.append('imagem', imagem);
-
-  const vacinasCompletas = vacinasIds.map(vId => { 
-  const vacinaObj = vacinas.find(v => v.id === vId); 
-  return { id: vId, nome: vacinaObj?.nome || 'Desconhecida' };
-});
-formData.append('vacinas', JSON.stringify(vacinasCompletas));
  
   try {
     
@@ -117,15 +78,8 @@ formData.append('vacinas', JSON.stringify(vacinasCompletas));
 for (const [key, value] of formData.entries()) {
   console.log(key, value);
 }
-      try {
-        await axios.post(`https://vacinaspringboot.onrender.com/vacinacao/gerar/${idAnimal}`);
-        alert(`Animal cadastrado com sucesso! ID: ${idAnimal}`);
-        router.push('/PaginaUsuario');
-      } catch (err) {
-  
-        alert('Animal cadastrado, mas falha ao tentar gerar as vacinas.');
-        console.error('Falha ao gerar vacinas:', err);
-      }
+      alert(`Animal cadastrado com sucesso! ID: ${idAnimal}`);
+      router.push('/PaginaUsuario');
     } else {
       alert('Falha ao tentar cadastrar o animal');
     }
@@ -255,18 +209,6 @@ for (const [key, value] of formData.entries()) {
 
             
             <div className={styles['dog-health']}>
-              <h5>💉 Vacinas</h5>
-              {vacinas.map((v) => (
-              <Form.Check
-                key={v.id}          
-                label={v.nome}
-                value={v.id}        
-                checked={vacinaAnimal.includes(v.id)} 
-                onChange={vacinaChecada}
-              />
-            ))}
-
-              
               <Form.Label htmlFor="observations" className="mt-3 mb-0.5">
                 🐶 Observações
               </Form.Label>
@@ -344,7 +286,6 @@ for (const [key, value] of formData.entries()) {
                     sexoAnimal,
                     porteAnimal,
                     pesoAnimal,
-                    vacinaAnimal,
                     obsAnimal,
                     linkAnimal,
                     castrado,

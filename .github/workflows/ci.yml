@@ -23,7 +23,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.ref_name }}
-          token: ${{ secrets.GH_TOKEN || github.token }}
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Configurar Node.js
         uses: actions/setup-node@v3

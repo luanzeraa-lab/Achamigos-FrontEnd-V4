@@ -14,7 +14,7 @@ const [user, setUser] = useState<any[]>([]);
   useEffect(() => {
   const listaUsers = async () => {
     try {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/users`, {
+      const res = await axios.get(`http://localhost:3002/api/users`, {
         headers: {
           'x-api-key': '1234', 
         },
@@ -23,7 +23,7 @@ const [user, setUser] = useState<any[]>([]);
       setUser(res.data);
       console.log(res.data);
     } catch (err) {
-      console.error('Erro ao buscar animais:', err);
+      console.error('Erro ao buscar usuários:', err);
     }
   };
 

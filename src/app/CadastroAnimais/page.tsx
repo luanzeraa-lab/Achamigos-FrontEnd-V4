@@ -44,6 +44,11 @@ const CadastroAnimais = () => {
   tipo: string,
   imagem: File | undefined
 ) => {
+   if (!userId) {
+    alert("Erro: Usuário não logado. userId está null.");
+    return;
+  }
+
   const formData = new FormData();
   formData.append('nome', nome);
   if (idadeAnimal !== '') formData.append('idade', idadeAnimal.toString());
@@ -55,12 +60,11 @@ const CadastroAnimais = () => {
   formData.append('linkAnimal', linkAnimal);
   formData.append('castracao', castracao ? 'true' : 'false');
   formData.append('tipo', tipo);
-  formData.append('userId', userId || '');
+  formData.append('userId', userId);
 
   if (imagem) formData.append('imagem', imagem);
- 
+
   try {
-    
     const res = await axios.post(
       `http://localhost:3002/api/animais`,
       formData,

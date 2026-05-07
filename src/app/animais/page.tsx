@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import axios from 'axios';
 import { IAnimal } from './IAnimal'; 
 import { useEffect, useState } from 'react';
+import RecomendacaoAnimal from '@/components/RecomendacaoAnimal';
 
 
 const TIPOS = ['gato', 'cachorro', 'outro'];
@@ -103,12 +104,7 @@ const Animais = () => {
         <Nav2 />
       </div>
 
-      <div className={styles['apresentacao']}>
-        <h1 className="max-w-[30rem] text-[1.875rem] font-bold my-2">Descubra qual é o pet ideal para você!</h1>
-        <textarea className="max-w-[30rem] text-sm text-gray-600 dark:text-gray-400" placeholder=''>
-        </textarea>
-
-      </div>
+     <RecomendacaoAnimal />
       
 
 

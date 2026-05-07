@@ -36,7 +36,7 @@ const Animais = () => {
     const listaAnimal = async () => {
       try {
         const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/animais`,
+          `http://localhost:3002/api/animais`,
           { headers: { 'x-api-key': '1234' } }
         );
         setAnimaisOriginais(res.data);
@@ -102,6 +102,15 @@ const Animais = () => {
       <div className={styles['Navc']}>
         <Nav2 />
       </div>
+
+      <div className={styles['apresentacao']}>
+        <h1 className="max-w-[30rem] text-[1.875rem] font-bold my-2">Descubra qual é o pet ideal para você!</h1>
+        <textarea className="max-w-[30rem] text-sm text-gray-600 dark:text-gray-400" placeholder=''>
+        </textarea>
+
+      </div>
+      
+
 
       <Container id='darks' fluid className={styles['gridcate']}>
         <div className={styles['apresentacao']}>

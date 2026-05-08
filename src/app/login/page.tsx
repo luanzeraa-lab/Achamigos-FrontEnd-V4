@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import Nav2 from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '../../components/Button';
-
+//teste
 const Login = () => {
   const router = useRouter();
 
@@ -30,7 +30,7 @@ const Login = () => {
       const data = await res.json();
 
       if (data.status === 'success') {
-        localStorage.setItem("userId", data.user.id);
+        localStorage.setItem("userId", data.user._id);
         localStorage.setItem("user", JSON.stringify(data.user));
         router.push('/PaginaUsuario');
       } else {

@@ -9,7 +9,7 @@ import { IAnimal } from './IAnimal';
 import { useEffect, useState } from 'react';
 import RecomendacaoAnimal from '@/components/RecomendacaoAnimal';
 
-
+//teste
 const TIPOS = ['gato', 'cachorro', 'outro'];
 const PORTES = ['pequeno', 'medio', 'grande'];
 const CASTRADOS = ['sim', 'nao'];

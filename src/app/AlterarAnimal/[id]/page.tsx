@@ -60,7 +60,7 @@ const AlterarAnimal = () => {
 
     try {
       await axios.put(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/animais/${id}`,
+        `http://localhost:3002/api/animais/${id}`,
         animal,
         { headers: { 'x-api-key': '1234' } }
       );

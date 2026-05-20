@@ -49,7 +49,7 @@ jobs:
           context: .
           push: false
           
-          tags: api-node:test
+          tags: front-end:test
     
 
       - name: Incrementar versão automaticamente
@@ -57,6 +57,49 @@ jobs:
           NEW_VERSION=$(npm version patch --no-git-tag-version | sed 's/^v//')
           echo "Nova versão: $NEW_VERSION"
           echo "new_version=$NEW_VERSION" >> $GITHUB_ENV
+
+              
+      - name: Login no Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+
+      - name: Verificar/Cria repositório no Docker Hub
+        run: |
+          REPO="${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}"
+
+          echo "Verificando se repositório existe: $REPO"
+
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -u "${{ secrets.DOCKERHUB_USERNAME }}:${{ secrets.DOCKERHUB_TOKEN }}" \
+            https://hub.docker.com/v2/repositories/${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}/)
+
+          if [ "$STATUS" = "200" ]; then
+            echo "Repositório já existe 👍"
+          else
+            echo "Repositório não existe. Criando..."
+            curl -X POST \
+              -H "Content-Type: application/json" \
+              -u "${{ secrets.DOCKERHUB_USERNAME }}:${{ secrets.DOCKERHUB_TOKEN }}" \
+              -d "{\"name\": \"${{ secrets.DOCKERHUB_REPO }}\", \"is_private\": false}" \
+              https://hub.docker.com/v2/repositories/${{ secrets.DOCKERHUB_USERNAME }}/
+            echo "Repositório criado com sucesso!"
+          fi
+
+   
+      - name: Build & Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}:${{ env.new_version }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}:latest
+
 
       - name: Commit e controle de tags
         run: |

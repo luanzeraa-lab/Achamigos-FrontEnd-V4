@@ -1,6 +1,10 @@
 import Image from 'next/image';
+import packageJson from '../../package.json'; // <-- Ajuste a quantidade de "../" dependendo de onde fica a sua pasta de componentes
 
 const Footer = () => {
+  // Captura a versão atualizada do package.json do frontend
+  const version = packageJson.version;
+
   return (
     <>
       <footer
@@ -56,13 +60,13 @@ const Footer = () => {
                   height={60}
                 />
               </div>
-              <p className="hidden mb-0 max-[641px]:self-center max-[641px]:hidden min-[641px]:hidden h-fit self-end font-[700] min-[1050px]:block">
-                Copyright 2025® Todos os direitos reservados
+              <p className="hidden mb-0 max-[641px]:self-center max-[641px]:hidden min-[641px]:hidden h-fit self-end font-[700] min-[1050px]:block text-xs text-gray-500">
+                Copyright 2025® Todos os direitos reservados — v{version}
               </p>
             </div>
           </div>
-          <p className="mb-0 max-[641px]:self-center max-[641px]:hidden min-[641px]:hidden h-fit self-end font-[700]">
-            Copyright 2025® Todos os direitos reservados
+          <p className="mb-0 max-[641px]:self-center max-[641px]:hidden min-[641px]:hidden h-fit self-end font-[700] text-xs text-gray-500">
+            Copyright 2025® Todos os direitos reservados — v{version}
           </p>
 
           <div className="flex flex-col gap-1 items-center min-[641px]:self-center self-end max-[641px]:self-center">
@@ -138,9 +142,9 @@ const Footer = () => {
 
           <p
             className="hidden mt-2 mb-0 max-[641px]:self-center max-[641px]:block
-         max-[640px]:self-center h-fit font-[700] min-[641px]:block self-center min-[1050px]:hidden"
+         max-[640px]:self-center h-fit font-[700] min-[641px]:block self-center min-[1050px]:hidden text-xs text-gray-500"
           >
-            Copyright 2025® Todos os direitos reservados
+            Copyright 2026® Todos os direitos reservados — v{version}
           </p>
         </div>
       </footer>

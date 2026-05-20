@@ -7,8 +7,9 @@ import Footer from '@/components/Footer';
 import axios from 'axios';
 import { IAnimal } from './IAnimal'; 
 import { useEffect, useState } from 'react';
+import RecomendacaoAnimal from '@/components/RecomendacaoAnimal';
 
-
+//teste
 const TIPOS = ['gato', 'cachorro', 'outro'];
 const PORTES = ['pequeno', 'medio', 'grande'];
 const CASTRADOS = ['sim', 'nao'];
@@ -102,6 +103,10 @@ const Animais = () => {
       <div className={styles['Navc']}>
         <Nav2 />
       </div>
+
+     <RecomendacaoAnimal />
+      
+
 
       <Container id='darks' fluid className={styles['gridcate']}>
         <div className={styles['apresentacao']}>

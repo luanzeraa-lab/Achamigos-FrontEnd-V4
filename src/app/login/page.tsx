@@ -19,6 +19,7 @@ const Login = () => {
       const res = await fetch(`http://localhost:3002/api/users/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json',
+          'x-api-key': '1234' },
           "x-api-key": "1234", 
          },
         body: JSON.stringify({

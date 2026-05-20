@@ -11,7 +11,6 @@ const Nav2 = () => {
   
   const [open, setOpen] = useState(false);
   const { increase, decrease } = fontSize();
-  const [darkMode, setDarkMode] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
 
   useEffect(() => {
@@ -19,14 +18,6 @@ const Nav2 = () => {
     setIsLogged(!!id); 
   }, []);
   
-  // useEffect(() => {
-  //   if (darkMode) {
-  //     document.body.classList.add('dark');
-  //   } else {
-  //     document.body.classList.remove('dark');
-  //   }
-  //   localStorage.setItem('theme', darkMode ? 'dark' : 'light');
-  // }, [darkMode]);
 
   const router = useRouter();
   const [filtered, setFiltered] = useState<string[]>([]);

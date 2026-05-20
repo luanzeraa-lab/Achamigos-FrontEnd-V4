@@ -1,6 +1,7 @@
 {
   "type": "module",
   "name": "my-app",
+  "version": "1.0.4",
   "version": "1.0.12",
   "private": true,
   "scripts": {

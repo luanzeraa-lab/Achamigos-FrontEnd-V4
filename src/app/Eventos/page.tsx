@@ -11,7 +11,7 @@ const Eventos = () => {
   useEffect(() => {
     const fetchEventos = async () => {
       try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/eventos`, {
+        const response = await axios.get(`http://localhost:3002/api/eventos`, {
           headers: {
             'x-api-key': 1234,
           },

@@ -7,8 +7,9 @@ import Footer from '@/components/Footer';
 import axios from 'axios';
 import { IAnimal } from './IAnimal'; 
 import { useEffect, useState } from 'react';
+import RecomendacaoAnimal from '@/components/RecomendacaoAnimal';
 
-
+//teste
 const TIPOS = ['gato', 'cachorro', 'outro'];
 const PORTES = ['pequeno', 'medio', 'grande'];
 const CASTRADOS = ['sim', 'nao'];
@@ -36,7 +37,7 @@ const Animais = () => {
     const listaAnimal = async () => {
       try {
         const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/animais`,
+          `http://localhost:3002/api/animais`,
           { headers: { 'x-api-key': '1234' } }
         );
         setAnimaisOriginais(res.data);
@@ -102,6 +103,10 @@ const Animais = () => {
       <div className={styles['Navc']}>
         <Nav2 />
       </div>
+
+     <RecomendacaoAnimal />
+      
+
 
       <Container id='darks' fluid className={styles['gridcate']}>
         <div className={styles['apresentacao']}>

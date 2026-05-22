@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import Nav2 from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '../../components/Button';
-
+//teste
 const Login = () => {
   const router = useRouter();
 
@@ -16,9 +16,10 @@ const Login = () => {
 
   const handleSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/login`, {
+      const res = await fetch(`http://localhost:3002/api/users/login`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json',
+          'x-api-key': '1234' },
         body: JSON.stringify({
           email: values.email,
           senha: values.senha,
@@ -28,7 +29,7 @@ const Login = () => {
       const data = await res.json();
 
       if (data.status === 'success') {
-        localStorage.setItem("userId", data.user.id);
+        localStorage.setItem("userId", data.user._id);
         localStorage.setItem("user", JSON.stringify(data.user));
         router.push('/PaginaUsuario');
       } else {

@@ -218,6 +218,10 @@ jobs:
             git push origin "$TAG_NAME"
           fi
 
+          - name: Trigger Render Deploy (Frontend HML)
+            run: |
+              curl "${{ secrets.RENDER_DEPLOY_HOOK_FRONTEND }}&imgURL=docker.io/${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}:latest"
+
       - name: Enviar email se falhar
         if: failure()
         uses: dawidd6/action-send-mail@v3

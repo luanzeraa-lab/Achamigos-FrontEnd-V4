@@ -19,7 +19,7 @@ const Login = () => {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json',
-          'x-api-key': '1234' },
+          'x-api-key': process.env.NEXT_PUBLIC_API_KEY ?? '' },
         body: JSON.stringify({
           email: values.email,
           senha: values.senha,

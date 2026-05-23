@@ -2,7 +2,7 @@ import Image from 'next/image';
 import packageJson from '../../package.json'; // <-- Ajuste a quantidade de "../" dependendo de onde fica a sua pasta de componentes
 
 const Footer = () => {
-  // Captura a versão atualizada do package.json do frontend
+ 
   const version = packageJson.version;
 
   return (

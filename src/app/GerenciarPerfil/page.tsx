@@ -39,11 +39,15 @@ const GerenciarPerfil = () => {
 
     try {
         const res = await axios.put(
+<<<<<<< HEAD
         `${process.env.NEXT_PUBLIC_API_URL}/api/users/${userId}`,
+=======
+      `${process.env.NEXT_PUBLIC_API_URL}/api/users/${userId}`,
+>>>>>>> main
         novoUser,
         {
             headers: {
-            'x-api-key': 1234
+        'x-api-key': process.env.NEXT_PUBLIC_API_KEY ?? ''
             }
         }
         );

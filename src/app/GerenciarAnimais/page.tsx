@@ -8,7 +8,7 @@ import axios from 'axios';
 import { IAnimal } from './IAnimal';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-
+//ttest
 const GerenciarAnimais = () => {
     const router = useRouter()
     const [animal, setAnimal] = useState<IAnimal[]>([]);
@@ -24,7 +24,7 @@ const GerenciarAnimais = () => {
     try {
       const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/animais`, {
         headers: {
-          'x-api-key': '1234', 
+          'x-api-key': process.env.NEXT_PUBLIC_API_KEY ?? '',
         },
       });
       const animaisFiltrados = res.data.filter((animal: any)=>{
@@ -48,7 +48,7 @@ const deletarAnimal = async (id) => {
   try {
     await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/api/animais/${id}`, {
       headers: { 
-        'x-api-key': '1234'
+        'x-api-key': process.env.NEXT_PUBLIC_API_KEY ?? ''
        }
     });
 

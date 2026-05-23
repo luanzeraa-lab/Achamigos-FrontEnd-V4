@@ -8,8 +8,8 @@ import axios from 'axios';
 import { IAnimal } from './IAnimal'; 
 import { useEffect, useState } from 'react';
 import RecomendacaoAnimal from '@/components/RecomendacaoAnimal';
+//test
 
-//teste
 const TIPOS = ['gato', 'cachorro', 'outro'];
 const PORTES = ['pequeno', 'medio', 'grande'];
 const CASTRADOS = ['sim', 'nao'];
@@ -38,7 +38,7 @@ const Animais = () => {
       try {
         const res = await axios.get(
           `${process.env.NEXT_PUBLIC_API_URL}/api/animais`,
-          { headers: { 'x-api-key': '1234' } }
+          { headers: { 'x-api-key': process.env.NEXT_PUBLIC_API_KEY ?? '' } }
         );
         setAnimaisOriginais(res.data);
         setAnimaisFiltrados(res.data); 

@@ -29,7 +29,7 @@ export default function RecomendacaoAnimal() {
       const res = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/api/gerarTexto`,
         { prompt: caracteristicas },
-        { headers: { 'x-api-key': '1234' } }
+        { headers: { 'x-api-key': process.env.NEXT_PUBLIC_API_KEY ?? '' } }
       )
       setResposta(res.data.resposta)
     } catch (err) {

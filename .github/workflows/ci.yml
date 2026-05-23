@@ -176,7 +176,7 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}:${{ env.new_version }}
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}:latest
           build-args: |
-            NEXT_PUBLIC_API_URL=https://achamigos-backend-hml.onrender.com
+            NEXT_PUBLIC_API_URL=https://achamigos-backend-latest.onrender.com
 
       - name: Trigger Render Deploy (Frontend HML)
         run: |

@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "my-app",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",

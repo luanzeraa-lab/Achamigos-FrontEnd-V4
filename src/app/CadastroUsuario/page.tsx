@@ -39,7 +39,7 @@ const CadastroUser = () => {
 
     try {
   const res = await axios.post(
-    `http://localhost:3002/api/users`,
+    `${process.env.NEXT_PUBLIC_API_URL}/api/users`,
     novoUser,
     {
       headers: {

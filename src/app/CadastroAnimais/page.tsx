@@ -62,7 +62,7 @@ const CadastroAnimais = () => {
   try {
     
     const res = await axios.post(
-      `http://localhost:3002/api/animais`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/animais`,
       formData,
       {
         headers: {

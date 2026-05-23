@@ -37,7 +37,7 @@ const Animais = () => {
     const listaAnimal = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3002/api/animais`,
+          `${process.env.NEXT_PUBLIC_API_URL}/api/animais`,
           { headers: { 'x-api-key': '1234' } }
         );
         setAnimaisOriginais(res.data);

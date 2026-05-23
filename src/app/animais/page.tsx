@@ -38,7 +38,7 @@ const Animais = () => {
       try {
         const res = await axios.get(
           `${process.env.NEXT_PUBLIC_API_URL}/api/animais`,
-          { headers: { 'x-api-key': '1234' } }
+          { headers: { 'x-api-key': process.env.NEXT_PUBLIC_API_KEY ?? '' } }
         );
         setAnimaisOriginais(res.data);
         setAnimaisFiltrados(res.data); 

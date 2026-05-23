@@ -28,7 +28,7 @@ const AlterarAnimal = () => {
       try {
         await axios.get(
           `${process.env.NEXT_PUBLIC_API_URL}/api/animais/${id}`,
-          { headers: { 'x-api-key': '1234' } }
+          { headers: { 'x-api-key': process.env.NEXT_PUBLIC_API_KEY ?? '' } }
         );
         setLoading(false);
       } catch (err) {
@@ -62,7 +62,7 @@ const AlterarAnimal = () => {
       await axios.put(
         `${process.env.NEXT_PUBLIC_API_URL}/api/animais/${id}`,
         animal,
-        { headers: { 'x-api-key': '1234' } }
+        { headers: { 'x-api-key': process.env.NEXT_PUBLIC_API_KEY ?? '' } }
       );
 
       alert('Animal atualizado com sucesso!');

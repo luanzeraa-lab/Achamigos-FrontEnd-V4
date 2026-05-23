@@ -43,7 +43,7 @@ const GerenciarPerfil = () => {
         novoUser,
         {
             headers: {
-            'x-api-key': 1234
+        'x-api-key': process.env.NEXT_PUBLIC_API_KEY ?? ''
             }
         }
         );

@@ -8,7 +8,7 @@ import axios from 'axios';
 import { IAnimal } from './IAnimal'; 
 import { useEffect, useState } from 'react';
 import RecomendacaoAnimal from '@/components/RecomendacaoAnimal';
-
+//test
 
 const TIPOS = ['gato', 'cachorro', 'outro'];
 const PORTES = ['pequeno', 'medio', 'grande'];

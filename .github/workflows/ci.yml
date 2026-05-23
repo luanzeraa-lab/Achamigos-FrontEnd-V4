@@ -106,9 +106,16 @@ jobs:
           git tag "$TAG_NAME"
           git push origin "$TAG_NAME"
 
-      - name: Trigger Render Deploy (Versão Específica)
+      - name: Trigger Render Deploy (Front-End)
         run: |
-          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_FRONTEND }}&imgURL=docker.io/${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}:${{ env.new_version }}"
+          # Deploy sempre no Front de Homologação (develop/main)
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_FRONT_HML }}"
+          
+          # Se for a main, deploy também no Front de Produção
+          if [ "${{ github.ref_name }}" == "main" ]; then
+            echo "Deployando Front em PRODUÇÃO..."
+            curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_FRONT_PROD }}"
+          fi
 
       - name: Enviar email se falhar
         if: failure()

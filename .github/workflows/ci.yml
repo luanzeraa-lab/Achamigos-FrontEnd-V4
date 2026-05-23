@@ -33,12 +33,11 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      - name: Criar arquivo .env de HML
-        run: |
-          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL_HML }}" >> .env
-          echo "NEXT_PUBLIC_API_KEY=${{ secrets.NEXT_PUBLIC_API_KEY_HML }}" >> .env
-
       - name: Rodar build
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY_HML }}
+          
         run: npm run build
 
       - name: Rodar testes

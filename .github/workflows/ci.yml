@@ -115,6 +115,7 @@ jobs:
           if [ "${{ github.ref_name }}" == "main" ]; then
             echo "Deployando Front em PRODUÇÃO..."
             curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_FRONT_PROD }}"
+            curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_FRONT_PROD_HEROKU }}"
           fi
 
 

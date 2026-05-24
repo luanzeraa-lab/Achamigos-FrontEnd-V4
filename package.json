@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "my-app",
-  "version": "1.1.1",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -23,10 +23,10 @@
     "formik": "^2.4.6",
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.552.0",
-    "next": "^16.2.6",
-    "react": "^19.2.6",
+    "next": "^15.5.3",
+    "react": "^18.2.0",
     "react-bootstrap": "^2.10.9",
-    "react-dom": "^19.2.6",
+    "react-dom": "^18.2.0",
     "react-smart-print": "^1.2.1",
     "react-to-print": "^3.2.0",
     "sass": "^1.93.2",

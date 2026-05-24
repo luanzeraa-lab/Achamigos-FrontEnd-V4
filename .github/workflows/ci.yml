@@ -117,18 +117,6 @@ jobs:
             curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_FRONT_PROD }}"
           fi
 
-      - name: Deploy para Heroku (Container)
-        if: github.ref == 'refs/heads/main'
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: |
-          
-          heroku container:login
-          
-          cp Dockerfile.heroku Dockerfile
-          
-          heroku container:push web -a achamigos-backend-prod
-          heroku container:release web -a achamigos-backend-prod 
 
       - name: Enviar email se falhar
         if: failure()

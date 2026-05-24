@@ -6,7 +6,7 @@ import { Button } from '../../components/Button';
 import Footer from '@/components/Footer';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
+//teste
 const Usuarios = () => {
   
 const [user, setUser] = useState<any[]>([]);  

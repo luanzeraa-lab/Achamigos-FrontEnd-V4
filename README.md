@@ -51,21 +51,51 @@ A aplicação permite visualizar animais disponíveis para adoção, gerenciar u
 └── package.json
 ```
 
+## ⚙️ CI/CD - GitHub Actions
+
+O projeto utiliza pipelines automatizadas com GitHub Actions para:
+
+* ✅ Build automático
+* ✅ Testes automatizados
+* ✅ Análise de qualidade com SonarQube
+* ✅ Geração automática de imagens Docker
+* ✅ Push automático para Docker Hub
+* ✅ Deploy automatizado em ambiente HML e Produção
+
+## 📊 Qualidade de Código
+
+O projeto utiliza SonarQube para análise contínua da qualidade do código.
+
+### Métricas analisadas
+
+* Cobertura de testes
+* Bugs
+* Vulnerabilidades
+* Code Smells
+* Duplicação de código
+* Segurança
+
+### Fluxo automatizado
+
+```text
+Commit → GitHub Actions → Testes → Sonar → Docker Build → Docker Hub → Deploy
+```
+
 ---
 
 ## 🚀 Ambientes de Deploy
 
 | Ambiente | Plataforma | URL |
 |-----------|-----------|-----|
-| Homologação | Render | [Acessar](https://achamigos-backend-latest.onrender.com) |
-| Produção | Render | [Acessar](https://achamigos-backend-latest.onrender.com) |
-| Produção | Heroku | [Acessar](https://achamigos-backend-prod-f16416b748da.herokuapp.com/) |
+| Homologação | Render | [Acessar](https://front-end-achamigos-hml-latest.onrender.com) |
+| Produção | Render | [Acessar](https://front-end-achamigos-prod.onrender.com) |
+| Produção | Render/Heroku | [Acessar](https://front-end-achamigos-prod-heroku.onrender.com) |
 
 ## 🐳 Docker Hub
 
 Imagem disponível em:
 
-[Acessar](hub.docker.com/r/lucas03almeida/front-end_achamigos)
+[Acessar](https://hub.docker.com/r/lucas03almeida/front-end_achamigos)
 
 Última versão:
 
@@ -173,23 +203,9 @@ export default api
 
 ## 🖼️ Upload de Imagens
 
-O upload de imagens da plataforma é realizado utilizando o serviço de armazenamento em nuvem da :contentReference[oaicite:0]{index=0}, permitindo persistência e gerenciamento eficiente das imagens dos animais.
+O upload de imagens da plataforma é realizado utilizando o serviço de armazenamento em nuvem da Cloudinary, permitindo persistência e gerenciamento eficiente das imagens dos animais.
 
 As imagens são enviadas para a API e armazenadas no Cloudinary, retornando uma URL pública utilizada pela aplicação.
-
-### Exemplo de envio:
-
-```typescript
-const animalData = {
-  nome,
-  especie,
-  idade,
-  imagem: imagemUrl
-}
-
-await axios.post('/api/animais', animalData)
-
----
 
 ## 📱 Responsividade
 
@@ -253,7 +269,7 @@ O frontend não acessa diretamente a API do Gemini.
 Toda comunicação ocorre através do backend:
 
 ```http
-POST `/api/gerarTexto`
+POST /api/gerarTexto
 ```
 
 Isso garante maior segurança e proteção da chave privada da IA.

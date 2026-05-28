@@ -193,7 +193,7 @@ const Animais = () => {
               <figure key={ani._id} className={styles['figures']}>
                 <img
                   className="rounded-[1rem] w-[20rem] h-[20rem] max-[500px]:w-[12.75rem] max-[500px]:h-[10rem]"
-                  src={`${process.env.NEXT_PUBLIC_API_URL}${ani.imagem}`}
+                  src={ani.imagem}
                   alt={ani.nome}
                 />
                 <figcaption id='info' className="justify-start p-4">

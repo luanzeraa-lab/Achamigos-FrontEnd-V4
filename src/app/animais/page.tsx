@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import axios from 'axios';
 import { IAnimal } from './IAnimal'; 
 import { useEffect, useState } from 'react';
+import crime from '../../../public/images/crime.png';
 import RecomendacaoAnimal from '@/components/RecomendacaoAnimal';
 //test
 
@@ -106,8 +107,6 @@ const Animais = () => {
 
      <RecomendacaoAnimal />
       
-
-
       <Container id='darks' fluid className={styles['gridcate']}>
         <div className={styles['apresentacao']}>
           <h1 className="text-[1.875rem] font-bold my-2">Pets para adoção</h1>
@@ -215,8 +214,8 @@ const Animais = () => {
                   <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2 mb-0">
                     <span className="font-[700]">Castrado:</span><span>{ani.castracao ? 'Sim' : 'Não'}</span>
                   </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    <span className="font-[700]">Observações:</span><span>{ani.observacoes}</span>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 text-justify">
+                    <span className="font-[700]">Observações: </span><span>{ani.observacoes}</span>
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-400 flex gap-2">
                     <a href={/^https?:\/\//i.test(ani.linkAnimal) ? ani.linkAnimal : `https://${ani.linkAnimal}`}

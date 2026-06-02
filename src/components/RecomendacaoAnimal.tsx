@@ -41,7 +41,7 @@ export default function RecomendacaoAnimal() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto mt-10 bg-white p-6 rounded-2xl shadow-lg">
+    <div className="max-w-2xl ml-[1.5rem] mt-10 p-6 rounded-2xl max-[900px]:mx-auto flex flex-col">
       <h1 className=" font-bold m-4 text-orange-500">
         Descubra o animal ideal
       </h1>
@@ -50,13 +50,13 @@ export default function RecomendacaoAnimal() {
         placeholder="Ex: Moro em apartamento pequeno, trabalho durante o dia e quero um animal calmo..."
         value={caracteristicas}
         onChange={(e) => setCaracteristicas(e.target.value)}
-        className="w-full h-32 border rounded-xl p-4 outline-none focus:ring-2 focus:ring-orange-400"
+        className="mx-4 w-3/5 h-32 border rounded-3 p-4 outline-none focus:ring-2 focus:ring-orange-400"
       />
 
       <Button
               onClick={buscarRecomendacao}
               disabled={loading}
-              className="m-4" title={"Buscar Recomendação"}      >
+              className="m-4 max-w-[12.136rem]" title={"Buscar Recomendação"}      >
         {loading ? "Analisando..." : "Buscar recomendação"}
       </Button>
 

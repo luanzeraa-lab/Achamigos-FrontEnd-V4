@@ -40,8 +40,12 @@ const Eventos = () => {
               className="rounded-[1rem] my-auto max-w-[20rem] bg-[#fffffe] p-4 outline-1 outline-[#a3a3a3] flex flex-col gap-2 text-justify"
             >
               <img
-                className="rounded-[1rem] self-center w-[18.75rem] h-[12.5rem] max-[500px]:w-[12.75rem] max-[500px]:h-[10rem]"
-                src={`${process.env.NEXT_PUBLIC_API_URL}${evento.imagem}`}
+                className="rounded-[1rem] self-center w-[18.75rem] h-[12.5rem]..."
+                src={
+                  evento.imagem?.startsWith('http') 
+                    ? evento.imagem 
+                    : `${process.env.NEXT_PUBLIC_API_URL}${evento.imagem}`
+                }
                 alt={evento.tipo_Evento}
               />
 

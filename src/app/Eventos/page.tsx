@@ -37,10 +37,10 @@ const Eventos = () => {
           {eventos.map((evento) => (
             <div
               key={evento._id}
-              className="rounded-[1rem] m-auto bg-[#fffffe] p-4 outline-1 outline-[#a3a3a3] flex flex-col gap-2"
+              className="rounded-[1rem] my-auto max-w-[20rem] bg-[#fffffe] p-4 outline-1 outline-[#a3a3a3] flex flex-col gap-2 text-justify"
             >
               <img
-                className="rounded-[1rem] w-[18.75rem] h-[12.5rem] max-[500px]:w-[12.75rem] max-[500px]:h-[10rem]"
+                className="rounded-[1rem] self-center w-[18.75rem] h-[12.5rem] max-[500px]:w-[12.75rem] max-[500px]:h-[10rem]"
                 src={`${process.env.NEXT_PUBLIC_API_URL}${evento.imagem}`}
                 alt={evento.tipo_Evento}
               />
